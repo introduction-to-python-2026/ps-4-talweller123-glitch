@@ -1,35 +1,35 @@
-def split_all_words_and_digits(formula):
+def split_at_first_digit(formula):
+    first_digit_index = -1
+    for i, char in enumerate(formula):
+        if char.isdigit():
+            first_digit_index = i
+            break
+            
+    if first_digit_index == -1:
+        return (formula, 1) 
+        
+    else:
+        prefix = formula[:first_digit_index]
+        number_str = formula[first_digit_index:]
+        number_int = int(number_str)
+        
+        return (prefix, number_int)
+
+def split_before_each_uppercase(formula):
+    if not formula:
+        return []
+        
     results = []
-    current_segment = ""
-
-    is_digit_prev = None 
-
-    for char in formula:
-        is_digit_current = char.isdigit()
-        
+    current_element = formula[0] 
     
-        if current_segment and is_digit_current != is_digit_prev:          
-            results.append(current_segment)
-            current_segment = char
+    for char in formula[1:]:
+        if char.isupper():
+            results.append(current_element)
+            current_element = char
         else:
-            current_segment += char
-
-        is_digit_prev = is_digit_current
-        
-    if current_segment:
-        results.append(current_segment)
+            current_element += char
+            
+    if current_element:
+        results.append(current_element)
         
     return results
-
-formula_a = "Ir6"
-print(split_all_words_and_digits(formula_a))  
-
-formula_b = "H2SO4"
-print(split_all_words_and_digits(formula_b)) 
-
-formula_c = "C6H12O6"
-print(split_all_words_and_digits(formula_c))  
-
-
-def split_at_first_digit(formula):
-    pass # Replace the `pass` with your code
