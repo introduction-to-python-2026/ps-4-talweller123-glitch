@@ -13,7 +13,7 @@ def split_at_first_digit(formula):
         return (prefix, number_int)
 def split_before_each_uppercase(formula):
     if not formula:
-        return []        
+        return []     
     results = []
     current_element = formula[0]     
     for char in formula[1:]:
@@ -23,5 +23,5 @@ def split_before_each_uppercase(formula):
         else:
             current_element += char            
     if current_element:
-        results.append(current_element)       
+        results.append(current_element)        
     return results
