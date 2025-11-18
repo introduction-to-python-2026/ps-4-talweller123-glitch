@@ -11,6 +11,8 @@ def split_at_first_digit(formula):
         number_str = formula[first_digit_index:]
         number_int = int(number_str)        
         return (prefix, number_int)
+formula = "Ir6"
+split_at_first_digit(formula)
 def split_before_each_uppercase(formula):
     results = []
     current_segment = ""  
@@ -23,3 +25,5 @@ def split_before_each_uppercase(formula):
     if current_segment:
         results.append(current_segment)        
     return results
+choose_formula = "Fe3He4B"
+split_before_each_uppercases(choose_formula)
