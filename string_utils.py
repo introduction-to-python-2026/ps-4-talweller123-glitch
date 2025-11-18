@@ -1,29 +1,25 @@
-def split_at_first_digit(formula):
-    first_digit_index = -1
-    for i, char in enumerate(formula):
-        if char.isdigit():
-            first_digit_index = i
-            break         
-    if first_digit_index == -1:
-        return (formula, 1)         
-    else:
-        prefix = formula[:first_digit_index]
-        number_str = formula[first_digit_index:]
-        number_int = int(number_str)        
-        return (prefix, number_int)
-formula = "Ir6"
-split_at_first_digit(formula)
-def split_before_each_uppercase(formula):
-    results = []
-    current_segment = ""  
-    for char in formula:
-        if char.isupper() and current_segment:
-            results.append(current_segment)
-            current_segment = char
+def split_before_each_uppercases(formula: str):
+    if formula == "":
+        return []
+
+    parts = []
+    current = ""
+
+    for ch in formula:
+        if ch.isupper():
+            if current:
+                parts.append(current)
+            current = ch
         else:
-            current_segment += char            
-    if current_segment:
-        results.append(current_segment)        
-    return results
-choose_formula = "Fe3He4B"
-split_before_each_uppercases(choose_formula)
+            current += ch
+
+    if current:
+        parts.append(current)
+    return parts
+
+
+def split_at_first_digit(formula: str):
+    for i, ch in enumerate(formula):
+        if ch.isdigit():
+            return formula[:i], int(formula[i:])
+    return(formula,1)
