@@ -9,8 +9,7 @@ def split_at_first_digit(formula):
     else:
         prefix = formula[:first_digit_index]
         number_str = formula[first_digit_index:]
-        number_int = int(number_str)
-        
+        number_int = int(number_str)     
         return (prefix, number_int)
 def split_before_each_uppercase(formula):
     if not formula:
